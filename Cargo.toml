@@ -1,0 +1,25 @@
+[package]
+name = "byancasay"
+version = "0.3.0"
+edition = "2021"
+rust-version = "1.85"
+description = "cowsay, but it's Byanca: a cyberpunk neko that talks, blinks, waves, wags her tail and dances in your terminal"
+license = "MIT"
+authors = ["Fabricio Varisco"]
+repository = "https://github.com/fabvarisco/byancasay"
+readme = "README.md"
+keywords = ["cowsay", "terminal", "ascii-art", "cli", "neko"]
+categories = ["command-line-utilities"]
+include = ["src/**", "assets/**", "Cargo.toml", "Cargo.lock", "README.md", "LICENSE"]
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+crossterm = "0.28"
+unicode-width = "0.2"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+panic = "unwind"
